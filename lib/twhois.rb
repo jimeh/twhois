@@ -3,7 +3,6 @@
 require 'rubygems'
 require 'net/http'
 require 'json'
-require 'hashie'
 
 require 'twhois/user'
 require 'twhois/version'

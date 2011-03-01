@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_runtime_dependency 'json_pure', '>= 1.0.0'
-  s.add_runtime_dependency 'hashie', '>= 1.0.0'
   
   s.add_development_dependency 'rspec', '>= 2.5.0'
   s.add_development_dependency 'yard', '>= 0.6.4'

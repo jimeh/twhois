@@ -18,8 +18,18 @@ describe Twhois do
   end
   
   it "should return error on unknown user" do
-    user = Twhois.lookup('jimehoawhefoahelfhasdf')
+    user = Twhois.lookup('akjsdfkjasdfasd')
     user.should be_nil
+  end
+  
+  it "should raise an exception on invalid usernames" do
+    lambda { # invalid characters
+      user = Twhois.lookup("abc/damn")
+    }.should raise_error(Twhois::InvalidUsername)
+    
+    lambda { # longer than 15 characters
+      user = Twhois.lookup("abcasdjfakajsdfasdfasdfa")
+    }.should raise_error(Twhois::InvalidUsername)
   end
   
 end

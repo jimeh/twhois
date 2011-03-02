@@ -4,25 +4,32 @@ require 'twhois'
 
 if ARGV.size > 0
   ARGV.each do |username|
-    user = Twhois.lookup(username)
-    if user
-      puts "@#{user.screen_name}:"
-      puts "  Name: #{user.name}"
-      puts "  URL: #{user.url}" if user.url
-      puts "  Location: #{user.location}" if user.location
-      puts "  Description: #{user.description}" if user.description
-      puts "  Followers: #{user.followers_count}"
-      puts "  Following: #{user.friends_count}"
-      puts "  Tweets: #{user.statuses_count}"
-      puts "  Last Tweet (#{user.status['created_at']}):"
-      puts "    #{user.status['text']}"
-      puts "  Timezone: #{user.time_zone}" if user.time_zone
-      puts "  Joined On: #{user.created_at}"
-      puts "  Profile Picture: #{user.profile_image_url}"
-      puts "  Private Account: #{user.protected ? "Yes" : "No"}"
-    else
-      puts "@#{username}:"
-      puts "  Not Found"
+    begin
+      user = Twhois.lookup(username)
+      if user
+        puts "@#{user.screen_name}:"
+        puts "  Name: #{user.name}"
+        puts "  URL: #{user.url}" if user.respond_to?(:url)
+        puts "  Profile: http://twitter.com/#{user.screen_name}"
+        puts "  Location: #{user.location}" if user.respond_to?(:location)
+        puts "  Description: #{user.description}" if user.respond_to?(:description)
+        puts "  Followers: #{user.followers_count}"
+        puts "  Following: #{user.friends_count}"
+        puts "  Tweets: #{user.statuses_count}"
+        if user.respond_to?(:status)
+          puts "  Last Tweet (#{user.status['created_at']}):"
+          puts "    #{user.status['text']}"
+        end
+        puts "  Timezone: #{user.time_zone}" if user.respond_to?(:time_zone)
+        puts "  Joined On: #{user.created_at}"
+        puts "  Profile Picture: #{user.profile_image_url}"
+        puts "  Private Account: #{user.protected ? "Yes" : "No"}"
+      else
+        puts "@#{username}:"
+        puts "  Not Found"
+      end
+    rescue Twhois::InvalidUsername => e
+      puts "\"#{username}\" is not a valid Twitter username"
     end
   end
 else

@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ['Jim Myhrberg']
   s.email       = ['contact@jimeh.me']
   s.homepage    = 'https://github.com/jimeh/twhois'
-  s.summary     = 'Whois-like Ruby Gem for Twitter users'
-  s.description = 'Whois-like Ruby Gem for Twitter users'
+  s.summary     = 'Whois-like command-line tool and Ruby Gem for Twitter users'
+  s.description = 'Whois-like command-line tool and Ruby Gem for Twitter users'
 
   s.rubyforge_project = 'twhois'
 

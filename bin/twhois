@@ -1,0 +1,26 @@
+#! /usr/bin/env ruby
+require 'rubygems'
+require 'twhois'
+
+ARGV.each do |username|
+  user = Twhois.lookup(username)
+  if user
+    puts "@#{user.screen_name}:"
+    puts "  Name: #{user.name}"
+    puts "  URL: #{user.url}" if user.url
+    puts "  Location: #{user.location}" if user.location
+    puts "  Description: #{user.description}" if user.description
+    puts "  Followers: #{user.followers_count}"
+    puts "  Following: #{user.friends_count}"
+    puts "  Tweets: #{user.statuses_count}"
+    puts "  Last Tweet (#{user.status['created_at']}):"
+    puts "    #{user.status['text']}"
+    puts "  Timezone: #{user.time_zone}" if user.time_zone
+    puts "  Joined On: #{user.created_at}"
+    puts "  Profile Picture: #{user.profile_image_url}"
+    puts "  Private Account: #{user.protected ? "Yes" : "No"}"
+  else
+    puts "@#{username}:"
+    puts "  Not Found"
+  end
+end

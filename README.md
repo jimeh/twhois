@@ -36,6 +36,14 @@ Whois-like command-line tool and Ruby Gem for Twitter users
     user.nil? #=> true
 
 
+## Why? ##
+
+    @sxtxixtxcxh: make me a gem
+    @jimeh: no
+    @sxtxixtxcxh: sudo make me a gem
+    @jimeh: ok
+
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
@@ -49,7 +57,7 @@ Whois-like command-line tool and Ruby Gem for Twitter users
 
 ## License and Copyright
 
-Copyright (c) 2010 Jim Myhrberg.
+Copyright (c) 2011 Jim Myhrberg.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

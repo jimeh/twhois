@@ -1,6 +1,6 @@
 # Twhois #
 
-Whois-like Ruby Gem for Twitter users
+Whois-like command-line tool and Ruby Gem for Twitter users
 
 
 ## Installation ##

@@ -26,10 +26,11 @@ if ARGV.size > 0
         puts "  Private Account: #{user.protected ? "Yes" : "No"}"
       else
         puts "@#{username}:"
-        puts "  Not Found"
+        puts "  Error: Not Found"
       end
     rescue Twhois::InvalidUsername => e
-      puts "\"#{username}\" is not a valid Twitter username"
+      puts "@#{username}:"
+      puts "  Error: Invalid Username"
     end
   end
 else
